@@ -1,12 +1,420 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <title>My First Message</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Developer Journey</title>
+
+    <style>
+        /* General styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Navigation bar */
+        nav {
+            padding: 22px 0;
+            border-bottom: 1px solid #263449;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #38bdf8;
+        }
+
+        /* Hero section */
+        .hero {
+            min-height: 75vh;
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .tag {
+            display: inline-block;
+            color: #7dd3fc;
+            background-color: #172554;
+            border: 1px solid #1e40af;
+            padding: 7px 14px;
+            border-radius: 25px;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 60px);
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: #38bdf8;
+        }
+
+        .hero p {
+            color: #94a3b8;
+            font-size: 18px;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #38bdf8;
+            color: #0f172a;
+        }
+
+        .btn-primary:hover {
+            background-color: #7dd3fc;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #475569;
+            color: #f1f5f9;
+        }
+
+        .btn-secondary:hover {
+            border-color: #38bdf8;
+            color: #38bdf8;
+        }
+
+        /* About section */
+        section {
+            padding: 65px 0;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .section-description {
+            color: #94a3b8;
+            max-width: 700px;
+            margin-bottom: 35px;
+        }
+
+        /* Learning cards */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .card {
+            background-color: #172033;
+            border: 1px solid #263449;
+            border-radius: 14px;
+            padding: 28px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .card .icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 15px;
+        }
+
+        /* Project section */
+        .project-box {
+            background: linear-gradient(135deg, #172554, #172033);
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 35px;
+        }
+
+        .project-box h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .project-box p {
+            color: #cbd5e1;
+            margin-bottom: 22px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid #263449;
+            padding: 25px 0;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 14px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                gap: 16px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 75px 0;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .project-box {
+                padding: 25px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hello! I am Rajath.</h1>
-    <p>I am learning Git and GitHub.</p>
-    <p>This is my first Git project. I love coding.</p>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container navbar">
+
+            <a href="#" class="logo">MyJourney.</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#learning">Learning</a></li>
+                <li><a href="#project">Project</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <main>
+        <section class="hero container" id="home">
+
+            <div class="hero-content">
+
+                <span class="tag">Aspiring Software Developer</span>
+
+                <h1>
+                    Learning Today.<br>
+                    <span>Building Tomorrow.</span>
+                </h1>
+
+                <p>
+                    Welcome to my developer journey! I'm learning web
+                    development and exploring how technology can turn
+                    ideas into meaningful digital experiences.
+                    This website represents one of my first steps
+                    toward becoming a software developer.
+                </p>
+
+                <div class="buttons">
+                    <a href="#project" class="btn btn-primary">
+                        Explore My Project
+                    </a>
+
+                    <a href="https://github.com/rajdev04"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-secondary">
+                        Visit My GitHub
+                    </a>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- About section -->
+        <section id="about">
+            <div class="container">
+
+                <h2 class="section-title">About This Journey</h2>
+
+                <p class="section-description">
+                    Every developer starts somewhere. I'm building
+                    my foundation by learning programming concepts,
+                    practising regularly, and creating small projects
+                    that help me understand how websites work.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Learning section -->
+        <section id="learning">
+            <div class="container">
+
+                <h2 class="section-title">What I'm Learning</h2>
+
+                <p class="section-description">
+                    These are some of the technologies and tools
+                    I'm exploring as I develop my skills.
+                </p>
+
+                <div class="cards">
+
+                    <div class="card">
+                        <div class="icon">🌐</div>
+                        <h3>HTML</h3>
+                        <p>
+                            Structuring webpages with elements,
+                            headings, links, sections, and content.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">🎨</div>
+                        <h3>CSS</h3>
+                        <p>
+                            Creating attractive layouts, colours,
+                            spacing, hover effects, and responsive designs.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="icon">💻</div>
+                        <h3>Git & GitHub</h3>
+                        <p>
+                            Tracking code changes, managing repositories,
+                            and publishing projects online.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Project section -->
+        <section id="project">
+            <div class="container">
+
+                <h2 class="section-title">My First Project</h2>
+
+                <p class="section-description">
+                    A simple personal webpage built with HTML and CSS
+                    and published using GitHub Pages.
+                </p>
+
+                <div class="project-box">
+
+                    <h3>My Developer Journey</h3>
+
+                    <p>
+                        This project helped me practise webpage
+                        structure, CSS styling, navigation links,
+                        responsive design, and website publishing.
+                        It is a starting point for building more
+                        interactive and useful applications.
+                    </p>
+
+                    <a href="https://github.com/rajdev04/Gitpractise"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="btn btn-primary">
+                        View Source Code
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Keep learning. Keep building. Keep growing.</p>
+            <p>&copy; 2026 My Developer Journey</p>
+        </div>
+    </footer>
+
 </body>
 </html>
