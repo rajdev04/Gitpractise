@@ -1,0 +1,3 @@
+Hello! I am Rajath.
+I am learning Git and GitHub.
+This is my first Git project.
